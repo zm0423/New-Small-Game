@@ -33,7 +33,7 @@ struct data_use
 {
     const char16_t FILENAME[21] = u"\\\\fls0\\gc_data.bin";
     userdata ud;
-    data_use() noexcept;
+    data_use();
     void update();
 };
 

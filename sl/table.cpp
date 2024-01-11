@@ -17,14 +17,6 @@ inline void print(int x, int y, int frontc)
     dupdate();
 }
 
-table::table(int mine)
-{
-	std::memset(this, 0, sizeof(table));
-    mines = mine;
-	x = 0;
-	y = 0;
-}
-
 inline void table::print_s(int x_, int y_) const
 {
     if(all[x_][y_].b_status == S_SEEN)

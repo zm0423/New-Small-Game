@@ -2,6 +2,7 @@
 #define TABLE_H
 
 #include<array>
+#include<exception>
 
 namespace miner
 {
@@ -41,7 +42,7 @@ const int HEIGHT = 8;
 class table
 {
  public:
-    explicit table(int mine);
+    explicit table(int mine):mines(mine){}
     void initialize();
     enum{NORMAL, END};
     void print_all(int type) const;

@@ -25,7 +25,7 @@ enum{
 
 struct block
 {
-    int b_status;
+    int b_status{0};
     int num;
 };
 

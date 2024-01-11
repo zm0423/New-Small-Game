@@ -42,9 +42,9 @@ void table::initialize()
     for(int i = 0;i < mines;++i)
         while(1)
         {
-            x1 = std::rand() % 16;
+            x1 = std::rand() % LENGTH;
             y1 = std::rand() % 8;
-			int judge = x1 * 10 + y1;
+			int judge = x1 * 10 + y1;//not to generate in the corner
             if(judge == 0 || judge == 150 || judge == 7 || judge == 157)
                 continue;
             if(all[x1][y1].num == BOMB)
@@ -55,7 +55,7 @@ void table::initialize()
                 {
                     if((!j)&&(!k))
                         continue;
-                    if(x1+j == -1||x1+j == 16||y1+k == -1||y1+k == 8)
+                    if(x1+j == -1||x1+j == LENGTH||y1+k == -1||y1+k == HEIGHT)
                         continue;
                     if((all[x1+j][y1+k]).num == BOMB)
                         continue;
@@ -69,8 +69,8 @@ void table::initialize()
 
 void table::print_all(int type) const
 {
-    for(int i = 0;i < 16;++i)
-        for(int j = 0;j < 8;++j)
+    for(int i = 0;i < LENGTH;++i)
+        for(int j = 0;j < HEIGHT;++j)
             if(!initialized)
                 print(i, j, C_BLOCK);
             else if(type == NORMAL)
@@ -138,7 +138,7 @@ bool table::auto_enter()
         {
             if((!i)&&(!j))
                 continue;
-            if(x+i == -1||x+i == 16||y+j == -1||y+j == 8)
+            if(x+i == -1||x+i == LENGTH||y+j == -1||y+j == HEIGHT)
                 continue;
             if(all[x+i][y+j].b_status == S_FLAG)
             {
@@ -164,7 +164,7 @@ void table::autoprocess(int x_, int y_)
     for(int i = -1;i < 2;++i)
         for(int j = -1;j < 2;++j)
         {
-            if(x_+i == -1||x_+i == 16||y_+j == -1||y_+j == 8)
+            if(x_+i == -1||x_+i == LENGTH||y_+j == -1||y_+j == HEIGHT)
                 continue;
             if(all[x_+i][y_+j].b_status == S_SEEN || all[x_+i][y_+j].b_status == S_FLAG)
                 continue;

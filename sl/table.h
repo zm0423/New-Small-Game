@@ -1,8 +1,11 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include<array>
+
 namespace miner
 {
+
 
 /* block status */
 
@@ -26,16 +29,19 @@ enum{
 struct block
 {
     int b_status{0};
-    int num;
+    int num{0};
 };
 
 const int ALL_NUM = 16 * 8;
+
+const int LENGTH = 16;
+const int HEIGHT = 8;
 
 /* x:0~15 y:0~7 */
 class table
 {
  public:
-    table(int mine);
+    explicit table(int mine);
     void initialize();
     enum{NORMAL, END};
     void print_all(int type) const;
@@ -53,13 +59,13 @@ class table
  private:
     inline void print_s(int x_, int y_) const;
     void autoprocess(int x_, int y_);
-    block all[16][8];
-    int x;
-    int y;
-    int flags;
-    int seen;
-    int mines;
-    int initialized;
+    std::array<std::array<block, HEIGHT>, LENGTH> all{};
+    int x{0};
+    int y{0};
+    int flags{0};
+    int seen{0};
+    int mines{0};
+    int initialized{0};
 };
 
 

@@ -2,7 +2,6 @@
 #include<gint/display.h>
 #include<gint/rtc.h>
 #include<gint/clock.h>
-#include<cstring>
 
 #include "table.h"
 

@@ -1,8 +1,7 @@
-#ifndef TABLE_H
-#define TABLE_H
+#ifndef SL_TABLE_H
+#define SL_TABLE_H
 
 #include<array>
-#include<exception>
 
 namespace miner
 {
